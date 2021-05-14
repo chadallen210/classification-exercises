@@ -4,6 +4,6 @@ env.py
 __pycache__
 .vscode/
 Untitled*.ipynb
-titanic.csv
-iris.csv
-Chad*
+titanic*.csv
+iris*.csv
+*.xlsx
