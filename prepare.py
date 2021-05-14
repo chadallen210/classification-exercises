@@ -1,5 +1,11 @@
+##### IMPORTS #####
+
 import numpy as np
 import pandas as pd
+
+import acquire
+
+##### PREPARE IRIS #####
 
 def prep_iris(df):
     
