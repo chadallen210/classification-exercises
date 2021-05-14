@@ -9,7 +9,10 @@ def get_db_url(db, username=username, host=host, password=password):
     
     return f'mysql+pymysql://{username}:{password}@{host}/{db}'
 
+
+
 ##### ACQUIRE TITANIC DATA FUNCTIONS #####
+
 def new_titanic_data():
     
     sql_query_titanic = 'SELECT * FROM passengers'
@@ -18,19 +21,21 @@ def new_titanic_data():
     
     return df
 
+
 def get_titanic_data(cached=False):
     
-    if cached == False or os.path.isfile('titanic_df.csv') == False:
+    if os.path.isfile('titanic_df.csv'):
+        
+        df = pd.read_csv('titanic_df.csv', index_col=0)
+        
+    else:
         
         df = new_titanic_data()
         
         df.to_csv('titanic_df.csv')
     
-    else:
-        
-        df = pd.read_csv('titanic_df.csv', index_col=0)
-    
     return df
+
 
 ##### ACQUIRE IRIS DATA FUNCTIONS #####
 def new_iris_data():
@@ -43,14 +48,14 @@ def new_iris_data():
 
 def get_iris_data(cached=False):
     
-    if cached == False or os.path.isfile('iris_df.csv') == False:
+    if os.path.isfile('iris_df.csv'):
+        
+        df = pd.read_csv('iris_df.csv', index_col=0)
+        
+    else:
         
         df = new_iris_data()
         
         df.to_csv('iris_df.csv')
-    
-    else:
         
-        df = pd.read_csv('iris_df.csv', index_col=0)
-    
     return df
