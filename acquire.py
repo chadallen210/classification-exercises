@@ -38,6 +38,7 @@ def get_titanic_data(cached=False):
 
 
 ##### ACQUIRE IRIS DATA FUNCTIONS #####
+
 def new_iris_data():
     
     sql_query_iris = 'SELECT * FROM measurements JOIN species USING (species_id)'
@@ -45,6 +46,7 @@ def new_iris_data():
     df = pd.read_sql(sql_query_iris, get_db_url('iris_db'))
     
     return df
+
 
 def get_iris_data(cached=False):
     
