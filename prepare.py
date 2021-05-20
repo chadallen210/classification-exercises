@@ -43,3 +43,17 @@ def prep_titanic(df):
     train, validate, test = impute_mean_age(train, validate, test)
     
     return train, validate, test
+
+def titanic_split(df):
+    '''
+    This function will take in the titanic data acquired by get_titanic_data,
+    performs a split, and stratifies column.
+    Returnd train, validate, and test DataFrames.
+    '''
+    train_validate, test = train_test_split(df, test_size=0.2,
+                            random_state=1221,
+                            stratify=df.survived)
+    train, validate = train_test_split(train_validate, test_size=0.3,
+                                    random_state=1221,
+                                    stratify=train_validate.survived)
+    return train, validate, test
